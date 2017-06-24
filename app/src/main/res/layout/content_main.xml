@@ -38,15 +38,16 @@
         app:layout_constraintVertical_bias="0.035" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/music"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Music"
+        android:onClick="musicPage"
         tools:layout_editor_absoluteX="266dp"
         tools:layout_editor_absoluteY="199dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/klaeid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Klaeidescope"
@@ -54,7 +55,7 @@
         tools:layout_editor_absoluteY="323dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/spin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Spin"
