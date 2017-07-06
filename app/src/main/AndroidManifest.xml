@@ -19,11 +19,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Spin"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_spin"
-            android:theme="@style/FullscreenTheme" />
-        <activity
             android:name=".Kaleidoscope"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_kaleidoscope"
@@ -32,7 +27,8 @@
             android:name=".Music"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_music"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme" />
+        <activity android:name=".SpinActivity"></activity>
     </application>
 
 </manifest>
