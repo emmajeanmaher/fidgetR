@@ -27,7 +27,7 @@
         android:layout_width="147dp"
         android:layout_height="61dp"
         android:gravity="center"
-        android:text="Welcome!"
+        android:text="Welcome! Pick a fidget exercise"
         android:textColor="#4286f4"
         android:textSize="60px"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,29 +37,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.035" />
 
-    <Button
-        android:id="@+id/music"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Music"
-        android:onClick="musicPage"
-        tools:layout_editor_absoluteX="266dp"
-        tools:layout_editor_absoluteY="199dp" />
+        android:text="TextView"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="70dp" />
 
-    <Button
-        android:id="@+id/klaeid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Klaeidescope"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="323dp" />
-
-    <Button
-        android:id="@+id/spin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Spin"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="199dp" />
 
 </android.support.constraint.ConstraintLayout>

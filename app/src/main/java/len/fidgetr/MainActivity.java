@@ -20,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
+    public void openSpin(View view) {
+        Intent startNewActivity = new Intent(this, SpinActivity.class);
+        startActivity(startNewActivity);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
