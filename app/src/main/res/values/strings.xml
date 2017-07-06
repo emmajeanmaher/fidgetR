@@ -7,6 +7,8 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <string name="button_spin">Spin</string>
+    <string name="button_music">Music</string>
+    <string name="button_kaleidoscope">Kaleidoscope</string>
 
     <string name="title_activity_kaleidoscope">Kaleidoscope</string>
 

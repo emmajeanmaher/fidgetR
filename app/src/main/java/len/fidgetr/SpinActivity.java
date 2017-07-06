@@ -9,5 +9,6 @@ public class SpinActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spin2);
+        setTitle("Spinner");
     }
 }

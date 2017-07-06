@@ -25,6 +25,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(startNewActivity);
     }
 
+    public void openMusic(View view) {
+        Intent startNewActivity = new Intent(this, Music.class);
+        startActivity(startNewActivity);
+    }
+
+    public void openKaleidoscope(View view) {
+        Intent startNewActivity = new Intent(this, Kaleidoscope.class);
+        startActivity(startNewActivity);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
