@@ -10,6 +10,9 @@
     <string name="button_music">Music</string>
     <string name="button_kaleidoscope">Kaleidoscope</string>
 
+    <!-- Below buttons are for music activity -->
+    <string name="button_ocean">Ocean</string>
+
     <string name="title_activity_kaleidoscope">Kaleidoscope</string>
 
     <string name="title_activity_music">Music</string>
