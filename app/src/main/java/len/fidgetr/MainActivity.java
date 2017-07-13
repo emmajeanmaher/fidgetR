@@ -1,5 +1,6 @@
 package len.fidgetr;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,8 +10,13 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
+
+    ImageButton kaleidoscopeActivityButton;
+    ImageButton spinnerActivityButton;
+    ImageButton musicActivityButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +24,45 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+//    private void createButton(ImageButton button,String imageId, String navigation){
+//        button = (ImageButton) findViewById(R.id.imageId);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v){
+//                Intent intentLoadNewActivity = new Intent(MainActivity.this, navigation.class);
+//                startActivity(intentLoadNewActivity);
+//            }
+//
+//        });
+//    }
+
+        kaleidoscopeActivityButton = (ImageButton) findViewById(R.id.image_kaleidoscope);
+        kaleidoscopeActivityButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v){
+                Intent intentLoadNewActivity = new Intent(MainActivity.this, Kaleidoscope.class);
+                startActivity(intentLoadNewActivity);
+            }
+
+        });
+
+        spinnerActivityButton = (ImageButton) findViewById(R.id.image_spinner);
+        spinnerActivityButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v){
+                Intent intentLoadNewActivity = new Intent(MainActivity.this, SpinActivity.class);
+                startActivity(intentLoadNewActivity);
+            }
+
+        });
+
+        musicActivityButton = (ImageButton) findViewById(R.id.image_music);
+        musicActivityButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v){
+                Intent intentLoadNewActivity = new Intent(MainActivity.this, Music.class);
+                startActivity(intentLoadNewActivity);
+            }
+
+        });
     }
 
     public void openSpin(View view) {
