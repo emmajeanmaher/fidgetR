@@ -88,8 +88,8 @@ public class SpinActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent event)
     {
-        acceleration.setText("x: " +event.values[0]+
-                "/nY: "+event.values[1]+
-                "/nZ: "+event.values[2]);
+        acceleration.setText("X: " +event.values[0]+
+                "\nY: "+event.values[1]+
+                "\nZ: "+event.values[2]);
     }
 }
