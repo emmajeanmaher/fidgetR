@@ -172,7 +172,7 @@ public class Kaleidoscope extends AppCompatActivity {
         mCameraIsOpen = true;
         startPreview();
 
-        //overkill?
+        //overkill? h
         if (mTextureView != null) {
             configureTransform(mTextureView.getWidth(), mTextureView.getHeight());
         }
