@@ -20,7 +20,7 @@ public class SpinActivity extends AppCompatActivity implements SensorEventListen
     public static final Random RANDOM = new Random();
     private View main;
     private ImageView spinner;
-    private int lastAngle = -1;
+    private float lastAngle = -1;
 
     //variables for accelerometer
     Sensor accelerometer;
@@ -50,7 +50,7 @@ public class SpinActivity extends AppCompatActivity implements SensorEventListen
             @Override
             public void onClick(View view)
             {
-                spin();
+                spin(RANDOM.nextInt(3600 - 360) + 360);
             }
         });
 
@@ -62,13 +62,13 @@ public class SpinActivity extends AppCompatActivity implements SensorEventListen
         acceleration=(TextView)findViewById(R.id.acceleration);
     }
 
-    private void spin(){
+    private void spin(float angle){
         //change background color
         int color = mColorWheel.getColor();
         main.setBackgroundColor(color);
 
         //spins picture
-        int angle = RANDOM.nextInt(3600 - 360) + 360;
+        //int angle = RANDOM.nextInt(3600 - 360) + 360;
         float pivotX = spinner.getWidth()/2;
         float pivotY = spinner.getHeight()/2;
 
@@ -91,5 +91,9 @@ public class SpinActivity extends AppCompatActivity implements SensorEventListen
         acceleration.setText("X: " +event.values[0]+
                 "\nY: "+event.values[1]+
                 "\nZ: "+event.values[2]);
+
+        if(event.values[1]>0) {
+            spin(event.values[1]);
+        }
     }
 }
