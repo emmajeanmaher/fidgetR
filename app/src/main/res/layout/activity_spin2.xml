@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Mainspinner"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_overlay"
+    tools:context="len.fidgetr.SpinActivity">
+
+    <ImageView
+        android:id="@+id/spinner"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:src="@drawable/spinner"
+        android:layout_centerInParent="true"
+        android:background="@android:color/transparent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/acceleration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X: Y: Z:"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+</android.support.constraint.ConstraintLayout>
