@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.hardware.camera2.CameraManager;
+import android.widget.Button;
+import android.widget.ImageView;
+
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -159,5 +163,19 @@ public class Kaleidoscope extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+        ImageView ImageView;
+        Button Capture;
     }
+    public void onOpened(CameraDevice cameraDevice) {
+        mCameraOpenCloseLock.release();
+        mCameraDevice = cameraDevice;
+        mCameraIsOpen = true;
+        startPreview();
+
+        //overkill?
+        if (mTextureView != null) {
+            configureTransform(mTextureView.getWidth(), mTextureView.getHeight());
+        }
+    }
+
 }
