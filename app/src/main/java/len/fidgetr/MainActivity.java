@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
 //    private void createButton(ImageButton button,String imageId, String navigation){
 //        button = (ImageButton) findViewById(R.id.imageId);
 //        button.setOnClickListener(new View.OnClickListener() {
@@ -102,9 +101,5 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void musicPage(View view)
-    {
-        Intent musicPage = new Intent(MainActivity.this, Music.class);
-        startActivity(musicPage);
-    }
+
 }
