@@ -93,7 +93,8 @@ public class SpinActivity extends AppCompatActivity implements SensorEventListen
                 "\nZ: "+event.values[2]);
 
         if(event.values[1]>0) {
-            spin(event.values[1]);
+            spin(event.values[1]+360);
+
         }
     }
 }
