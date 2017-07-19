@@ -20,8 +20,12 @@ public class Music extends AppCompatActivity {
     ImageButton rainSoundButton;
     ImageButton windSoundButton;
 
+    boolean forestToggle = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music);
 
@@ -33,20 +37,30 @@ public class Music extends AppCompatActivity {
         final MediaPlayer windButtonClick = MediaPlayer.create(this, R.raw.wind);
 
 
+
+
         birdSoundButton = (ImageButton) findViewById(R.id.bird);
         birdSoundButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 birdButtonClick.start();
             }
-
         });
 
         forestSoundButton = (ImageButton) findViewById(R.id.forest);
         forestSoundButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                forestButtonClick.start();
+                if(!forestToggle)
+                {
+                    forestToggle = true;
+                    forestButtonClick.setLooping(true);
+                    forestButtonClick.start();
+                }
+                else
+                {
+                    forestToggle = false;
+                    forestButtonClick.stop();
+                }
             }
-
         });
 
         oceanSoundButton = (ImageButton) findViewById(R.id.ocean);
@@ -54,7 +68,6 @@ public class Music extends AppCompatActivity {
             public void onClick(View v){
                 oceanButtonClick.start();
             }
-
         });
 
         pianoSoundButton = (ImageButton) findViewById(R.id.piano);
@@ -62,7 +75,6 @@ public class Music extends AppCompatActivity {
             public void onClick(View v){
                 pianoButtonClick.start();
             }
-
         });
 
         rainSoundButton = (ImageButton) findViewById(R.id.rain);
@@ -70,7 +82,6 @@ public class Music extends AppCompatActivity {
             public void onClick(View v){
                 rainButtonClick.start();
             }
-
         });
 
         windSoundButton = (ImageButton) findViewById(R.id.wind);
@@ -78,7 +89,7 @@ public class Music extends AppCompatActivity {
             public void onClick(View v){
                 windButtonClick.start();
             }
-
         });
     }
+
 }
