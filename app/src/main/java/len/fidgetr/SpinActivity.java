@@ -5,6 +5,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -13,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 public class SpinActivity extends AppCompatActivity implements SensorEventListener{
 
@@ -94,9 +94,17 @@ public class SpinActivity extends AppCompatActivity implements SensorEventListen
                 "\nZ: "+event.values[2]);
 
         if(event.values[1]>0) {
-
             spin(event.values[1]+360);
+            new CountDownTimer(30000, 1000) {
 
+                public void onTick(long millisUntilFinished) {
+                   //do nothing
+                }
+
+                public void onFinish() {
+                    //do nothing
+                }
+            }.start();
         }
     }
 }
