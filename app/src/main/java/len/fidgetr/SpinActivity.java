@@ -94,7 +94,7 @@ public class SpinActivity extends AppCompatActivity implements SensorEventListen
                 "\nZ: "+event.values[2]);
 
         if(event.values[1]>0) {
-            spin(event.values[1]+360);
+                spin(event.values[1]+360);
             new CountDownTimer(30000, 1000) {
 
                 public void onTick(long millisUntilFinished) {
