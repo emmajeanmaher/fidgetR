@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 
 public class Music extends AppCompatActivity {
@@ -20,11 +21,15 @@ public class Music extends AppCompatActivity {
     ImageButton rainSoundButton;
     ImageButton windSoundButton;
 
+    boolean birdToggle = false;
     boolean forestToggle = false;
+    boolean oceanToggle = false;
+    boolean pianoToggle = false;
+    boolean rainToggle = false;
+    boolean windToggle = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music);
@@ -36,13 +41,22 @@ public class Music extends AppCompatActivity {
         final MediaPlayer rainButtonClick = MediaPlayer.create(this, R.raw.rain);
         final MediaPlayer windButtonClick = MediaPlayer.create(this, R.raw.wind);
 
-
-
-
         birdSoundButton = (ImageButton) findViewById(R.id.bird);
         birdSoundButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                birdButtonClick.start();
+                if(!birdToggle)
+                {
+                    birdToggle = true;
+                    birdButtonClick.setLooping(true);
+                    birdButtonClick.start();
+                    birdSoundButton.setColorFilter(Color.parseColor("#e6005c")); //white
+                }
+                else
+                {
+                    birdToggle = false;
+                    birdButtonClick.pause();
+                    birdSoundButton.setColorFilter(Color.parseColor("#000000")); //black
+                }
             }
         });
 
@@ -54,12 +68,13 @@ public class Music extends AppCompatActivity {
                     forestToggle = true;
                     forestButtonClick.setLooping(true);
                     forestButtonClick.start();
-                    forestSoundButton.setColorFilter(getContext().getResources().getColor(R.color.green));
+                    forestSoundButton.setColorFilter(Color.parseColor("#006600")); //white
                 }
                 else
                 {
                     forestToggle = false;
-                    forestButtonClick.stop();
+                    forestButtonClick.pause();
+                    forestSoundButton.setColorFilter(Color.parseColor("#000000")); //black
                 }
             }
         });
@@ -67,28 +82,76 @@ public class Music extends AppCompatActivity {
         oceanSoundButton = (ImageButton) findViewById(R.id.ocean);
         oceanSoundButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                oceanButtonClick.start();
+                if(!oceanToggle)
+                {
+                    oceanToggle = true;
+                    oceanButtonClick.setLooping(true);
+                    oceanButtonClick.start();
+                    oceanSoundButton.setColorFilter(Color.parseColor("#009999")); //white
+                }
+                else
+                {
+                    oceanToggle = false;
+                    oceanButtonClick.pause();
+                    oceanSoundButton.setColorFilter(Color.parseColor("#000000")); //black
+                }
             }
         });
 
         pianoSoundButton = (ImageButton) findViewById(R.id.piano);
         pianoSoundButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                pianoButtonClick.start();
+                if(!pianoToggle)
+                {
+                    pianoToggle = true;
+                    pianoButtonClick.setLooping(true);
+                    pianoButtonClick.start();
+                    pianoSoundButton.setColorFilter(Color.parseColor("#ffffff")); //white
+                }
+                else
+                {
+                    pianoToggle = false;
+                    pianoButtonClick.pause();
+                    pianoSoundButton.setColorFilter(Color.parseColor("#000000")); //black
+                }
             }
         });
 
         rainSoundButton = (ImageButton) findViewById(R.id.rain);
         rainSoundButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                rainButtonClick.start();
+                if(!rainToggle)
+                {
+                    rainToggle = true;
+                    rainButtonClick.setLooping(true);
+                    rainButtonClick.start();
+                    rainSoundButton.setColorFilter(Color.parseColor("#002b80")); //white
+                }
+                else
+                {
+                    rainToggle = false;
+                    rainButtonClick.pause();
+                    rainSoundButton.setColorFilter(Color.parseColor("#000000")); //black
+                }
             }
         });
 
         windSoundButton = (ImageButton) findViewById(R.id.wind);
         windSoundButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                windButtonClick.start();
+                if(!windToggle)
+                {
+                    windToggle = true;
+                    windButtonClick.setLooping(true);
+                    windButtonClick.start();
+                    windSoundButton.setColorFilter(Color.parseColor("#e6e600")); //white
+                }
+                else
+                {
+                    windToggle = false;
+                    windButtonClick.pause();
+                    windSoundButton.setColorFilter(Color.parseColor("#000000")); //black
+                }
             }
         });
     }

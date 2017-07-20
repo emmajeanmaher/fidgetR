@@ -94,11 +94,7 @@ public class SpinActivity extends AppCompatActivity implements SensorEventListen
                 "\nZ: "+event.values[2]);
 
         if(event.values[1]>0) {
-            try {
-                TimeUnit.SECONDS.sleep(3);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
             spin(event.values[1]+360);
 
         }
