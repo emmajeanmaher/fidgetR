@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class SpinActivity extends AppCompatActivity implements SensorEventListener{
 
@@ -74,7 +75,7 @@ public class SpinActivity extends AppCompatActivity implements SensorEventListen
 
         final Animation rotateAnimation = new RotateAnimation(lastAngle == -1 ? 0 : lastAngle, angle, pivotX, pivotY );
         lastAngle = angle;
-        rotateAnimation.setDuration(2500);
+        rotateAnimation.setDuration(3000);
         rotateAnimation.setFillAfter(true);
 
         spinner.startAnimation(rotateAnimation);
@@ -93,6 +94,11 @@ public class SpinActivity extends AppCompatActivity implements SensorEventListen
                 "\nZ: "+event.values[2]);
 
         if(event.values[1]>0) {
+            try {
+                TimeUnit.SECONDS.sleep(3);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             spin(event.values[1]+360);
 
         }
