@@ -54,6 +54,7 @@ public class Music extends AppCompatActivity {
                     forestToggle = true;
                     forestButtonClick.setLooping(true);
                     forestButtonClick.start();
+                    forestSoundButton.setColorFilter(getContext().getResources().getColor(R.color.green));
                 }
                 else
                 {
