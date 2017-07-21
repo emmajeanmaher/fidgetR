@@ -25,6 +25,7 @@ public class Kaleidoscope extends AppCompatActivity {
     Button button;
     ImageView imageView;
     static final int CamReq = 1;
+    //this is a comment
 
 
     @Override
