@@ -71,7 +71,7 @@ public class Music extends AppCompatActivity {
                     fireToggle = true;
                     fireButtonClick.setLooping(true);
                     fireButtonClick.start();
-                    fireSoundButton.setColorFilter(Color.parseColor("#006600")); //white
+                    fireSoundButton.setColorFilter(Color.parseColor("#e63900")); //white
                 }
                 else
                 {
@@ -81,7 +81,6 @@ public class Music extends AppCompatActivity {
                 }
             }
         });
-
 
 
         forestSoundButton = (ImageButton) findViewById(R.id.forest);
