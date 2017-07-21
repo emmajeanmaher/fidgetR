@@ -15,6 +15,7 @@ import android.media.MediaPlayer;
 public class Music extends AppCompatActivity {
 
     ImageButton birdSoundButton;
+    ImageButton fireSoundButton;
     ImageButton forestSoundButton;
     ImageButton oceanSoundButton;
     ImageButton pianoSoundButton;
@@ -22,6 +23,7 @@ public class Music extends AppCompatActivity {
     ImageButton windSoundButton;
 
     boolean birdToggle = false;
+    boolean fireToggle = false;
     boolean forestToggle = false;
     boolean oceanToggle = false;
     boolean pianoToggle = false;
@@ -35,30 +37,52 @@ public class Music extends AppCompatActivity {
         setContentView(R.layout.activity_music);
 
         final MediaPlayer birdButtonClick = MediaPlayer.create(this, R.raw.bird);
+        final MediaPlayer fireButtonClick = MediaPlayer.create(this, R.raw.fire);
         final MediaPlayer forestButtonClick = MediaPlayer.create(this, R.raw.forest);
         final MediaPlayer oceanButtonClick = MediaPlayer.create(this, R.raw.ocean);
         final MediaPlayer pianoButtonClick = MediaPlayer.create(this, R.raw.piano);
         final MediaPlayer rainButtonClick = MediaPlayer.create(this, R.raw.rain);
         final MediaPlayer windButtonClick = MediaPlayer.create(this, R.raw.wind);
 
-        birdSoundButton = (ImageButton) findViewById(R.id.bird);
-        birdSoundButton.setOnClickListener(new View.OnClickListener() {
+//        birdSoundButton = (ImageButton) findViewById(R.id.bird);
+//        birdSoundButton.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v){
+//                if(!birdToggle)
+//                {
+//                    birdToggle = true;
+//                    birdButtonClick.setLooping(true);
+//                    birdButtonClick.start();
+//                    birdSoundButton.setColorFilter(Color.parseColor("#e6005c")); //white
+//                }
+//                else
+//                {
+//                    birdToggle = false;
+//                    birdButtonClick.pause();
+//                    birdSoundButton.setColorFilter(Color.parseColor("#000000")); //black
+//                }
+//            }
+//        });
+
+        fireSoundButton = (ImageButton) findViewById(R.id.fire);
+        fireSoundButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                if(!birdToggle)
+                if(!fireToggle)
                 {
-                    birdToggle = true;
-                    birdButtonClick.setLooping(true);
-                    birdButtonClick.start();
-                    birdSoundButton.setColorFilter(Color.parseColor("#e6005c")); //white
+                    fireToggle = true;
+                    fireButtonClick.setLooping(true);
+                    fireButtonClick.start();
+                    fireSoundButton.setColorFilter(Color.parseColor("#006600")); //white
                 }
                 else
                 {
-                    birdToggle = false;
-                    birdButtonClick.pause();
-                    birdSoundButton.setColorFilter(Color.parseColor("#000000")); //black
+                    fireToggle = false;
+                    fireButtonClick.pause();
+                    fireSoundButton.setColorFilter(Color.parseColor("#000000")); //black
                 }
             }
         });
+
+
 
         forestSoundButton = (ImageButton) findViewById(R.id.forest);
         forestSoundButton.setOnClickListener(new View.OnClickListener() {
