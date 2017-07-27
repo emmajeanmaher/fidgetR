@@ -22,7 +22,7 @@ User must have an Android-compatible device
 	Android Studio 2.3.3 - Used to design the application
 	JDK 8 and XML - Used to write the application
 
-# Authors - Nicholas Maher, Emma Budd, London Jepson
+# Authors - [Nicholas Maher](https://github.com/nemaher), [London Jepson](https://github.com/frofro),[Emma Budd](https://github.com/emmajeanbudd) 
 
 
 
