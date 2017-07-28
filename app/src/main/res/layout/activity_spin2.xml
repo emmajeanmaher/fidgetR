@@ -25,7 +25,7 @@
         android:id="@+id/acceleration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="X: Y: Z:"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceLarge"/>
 
 </android.support.constraint.ConstraintLayout>

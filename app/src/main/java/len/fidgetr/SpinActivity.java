@@ -5,7 +5,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -22,6 +22,10 @@ public class SpinActivity extends AppCompatActivity implements SensorEventListen
     private View main;
     private ImageView spinner;
     private float lastAngle = -1;
+    private float difference = 0;
+    Handler handler = new Handler();
+
+    int colorNum = 0;
 
     //variables for accelerometer
     Sensor accelerometer;
@@ -47,13 +51,13 @@ public class SpinActivity extends AppCompatActivity implements SensorEventListen
         main = findViewById(R.id.Mainspinner);
         spinner = (ImageView) findViewById(R.id.spinner);
 
-        main.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view)
-            {
-                spin(RANDOM.nextInt(3600 - 360) + 360);
-            }
-        });
+//        main.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view)
+//            {
+//                spin(RANDOM.nextInt(3600 - 360) + 360);
+//            }
+//        });
 
         //setting up accelerometer
         sm = (SensorManager)getSystemService(SENSOR_SERVICE);
@@ -65,8 +69,13 @@ public class SpinActivity extends AppCompatActivity implements SensorEventListen
 
     private void spin(float angle){
         //change background color
-        int color = mColorWheel.getColor();
+        int color = mColorWheel.getColor(colorNum);
         main.setBackgroundColor(color);
+        colorNum++;
+        if (colorNum == 23)
+        {
+            colorNum = 0;
+        }
 
         //spins picture
         //int angle = RANDOM.nextInt(3600 - 360) + 360;
@@ -75,7 +84,7 @@ public class SpinActivity extends AppCompatActivity implements SensorEventListen
 
         final Animation rotateAnimation = new RotateAnimation(lastAngle == -1 ? 0 : lastAngle, angle, pivotX, pivotY );
         lastAngle = angle;
-        rotateAnimation.setDuration(3000);
+        rotateAnimation.setDuration(100);
         rotateAnimation.setFillAfter(true);
 
         spinner.startAnimation(rotateAnimation);
@@ -89,22 +98,15 @@ public class SpinActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent event)
     {
-        acceleration.setText("X: " +event.values[0]+
-                "\nY: "+event.values[1]+
-                "\nZ: "+event.values[2]);
 
-        if(event.values[1]>0) {
-                spin(event.values[1]+360);
-            new CountDownTimer(30000, 1000) {
 
-                public void onTick(long millisUntilFinished) {
-                   //do nothing
-                }
+            spin(event.values[1] * 36);
+        //used for testing
+//        acceleration.setText(
+//                "X: "+event.values[0]+
+//                "\nY: "+event.values[1]+
+//                "\nZ: "+event.values[2]);
 
-                public void onFinish() {
-                    //do nothing
-                }
-            }.start();
-        }
     }
 }
+
