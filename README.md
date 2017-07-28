@@ -24,6 +24,11 @@ User must have an Android-compatible device
 
 # Authors - [Nicholas Maher](https://github.com/nemaher), [London Jepson](https://github.com/frofro),[Emma Budd](https://github.com/emmajeanbudd) 
 
+**Known Bugs:**
+When a music button is pressed and the music is still playing, it ceases to stop when you exit the music activity. You must wait for the music to stop.
+
+
+
 
 
 
