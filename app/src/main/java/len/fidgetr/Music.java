@@ -1,12 +1,7 @@
 package len.fidgetr;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.graphics.Color;
@@ -14,7 +9,7 @@ import android.media.MediaPlayer;
 
 public class Music extends AppCompatActivity {
 
-    ImageButton birdSoundButton;
+    // creates the images for the sound
     ImageButton fireSoundButton;
     ImageButton forestSoundButton;
     ImageButton oceanSoundButton;
@@ -22,7 +17,8 @@ public class Music extends AppCompatActivity {
     ImageButton rainSoundButton;
     ImageButton windSoundButton;
 
-    boolean birdToggle = false;
+
+    // turns on / off the sound for each image
     boolean fireToggle = false;
     boolean forestToggle = false;
     boolean oceanToggle = false;
@@ -30,42 +26,23 @@ public class Music extends AppCompatActivity {
     boolean rainToggle = false;
     boolean windToggle = false;
 
+    final MediaPlayer fireButtonClick = MediaPlayer.create(this, R.raw.fire);
+    final MediaPlayer forestButtonClick = MediaPlayer.create(this, R.raw.forest);
+    final MediaPlayer oceanButtonClick = MediaPlayer.create(this, R.raw.ocean);
+    final MediaPlayer pianoButtonClick = MediaPlayer.create(this, R.raw.piano);
+    final MediaPlayer rainButtonClick = MediaPlayer.create(this, R.raw.rain);
+    final MediaPlayer windButtonClick = MediaPlayer.create(this, R.raw.wind);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music);
 
-        final MediaPlayer birdButtonClick = MediaPlayer.create(this, R.raw.bird);
-        final MediaPlayer fireButtonClick = MediaPlayer.create(this, R.raw.fire);
-        final MediaPlayer forestButtonClick = MediaPlayer.create(this, R.raw.forest);
-        final MediaPlayer oceanButtonClick = MediaPlayer.create(this, R.raw.ocean);
-        final MediaPlayer pianoButtonClick = MediaPlayer.create(this, R.raw.piano);
-        final MediaPlayer rainButtonClick = MediaPlayer.create(this, R.raw.rain);
-        final MediaPlayer windButtonClick = MediaPlayer.create(this, R.raw.wind);
-
-//        birdSoundButton = (ImageButton) findViewById(R.id.bird);
-//        birdSoundButton.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v){
-//                if(!birdToggle)
-//                {
-//                    birdToggle = true;
-//                    birdButtonClick.setLooping(true);
-//                    birdButtonClick.start();
-//                    birdSoundButton.setColorFilter(Color.parseColor("#e6005c")); //white
-//                }
-//                else
-//                {
-//                    birdToggle = false;
-//                    birdButtonClick.pause();
-//                    birdSoundButton.setColorFilter(Color.parseColor("#000000")); //black
-//                }
-//            }
-//        });
-
         fireSoundButton = (ImageButton) findViewById(R.id.fire);
         fireSoundButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
+                // if button is pressed, turn sound on /off
                 if(!fireToggle)
                 {
                     fireToggle = true;
@@ -81,7 +58,6 @@ public class Music extends AppCompatActivity {
                 }
             }
         });
-
 
         forestSoundButton = (ImageButton) findViewById(R.id.forest);
         forestSoundButton.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +86,7 @@ public class Music extends AppCompatActivity {
                     oceanToggle = true;
                     oceanButtonClick.setLooping(true);
                     oceanButtonClick.start();
-                    oceanSoundButton.setColorFilter(Color.parseColor("#009999")); //white
+                    oceanSoundButton.setColorFilter(Color.parseColor("#42f7e8")); //white
                 }
                 else
                 {
@@ -178,5 +154,4 @@ public class Music extends AppCompatActivity {
             }
         });
     }
-
 }
