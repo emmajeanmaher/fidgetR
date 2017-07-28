@@ -36,20 +36,30 @@
             tools:ignore="UselessParent">
 
             <Button
-                android:id="@+id/Button"
+                android:id="@+id/Capture"
                 style="?metaButtonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/title_activity_kaleidoscope"
+                android:text="capture"
+                android:textColor="#33b5e5"
                />
+            <Button
+                android:id="@+id/Kaleidoscope"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Kaleidoscope"
+                android:textColor="#33b5e5"
+                />
 
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/TextureView"
             android:layout_width="match_parent"
-            android:layout_height="454dp" />
+            android:layout_height="463dp" />
     </FrameLayout>
 
 </FrameLayout>

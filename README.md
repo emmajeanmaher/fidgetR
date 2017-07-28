@@ -11,7 +11,7 @@ From the three image buttons, you can:
 
 **You chose music!** By pressing each of the six images, different sounds will play. When a sound is turned on, the image will turn a different  color. If you click the image again, the sound will turn off. Play around with what sounds are appealing together. Now have fun fidgeting!
 
-**You chose kaleidoscope!**
+**You chose kaleidoscope!** First press capture and then tap on screen. your picture appears on the screen. after there is a picture on the screen press kaleidoscope button to turn the picture you took into a square kaleidoscope.
 
 
 
