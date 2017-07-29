@@ -1,73 +1,18 @@
 package len.fidgetr;
 
-        import android.annotation.SuppressLint;
         import android.app.Activity;
         import android.content.Intent;
         import android.graphics.Bitmap;
-        import android.graphics.BitmapShader;
         import android.graphics.Canvas;
-        import android.graphics.Color;
         import android.graphics.Matrix;
-        import android.graphics.Paint;
-        import android.graphics.Path;
-        import android.graphics.RectF;
-        import android.graphics.Shader;
-        import android.graphics.drawable.Drawable;
-        import android.net.Uri;
         import android.provider.MediaStore;
-        import android.support.v7.app.ActionBar;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
-        import android.os.Handler;
-        import android.view.MotionEvent;
         import android.view.View;
         import android.widget.Button;
         import android.widget.ImageView;
-        import android.Manifest;
-        import android.content.Context;
-        import android.content.pm.PackageManager;
-        import android.graphics.ImageFormat;
-        import android.graphics.SurfaceTexture;
-        import android.hardware.camera2.CameraAccessException;
-        import android.hardware.camera2.CameraCaptureSession;
-        import android.hardware.camera2.CameraCharacteristics;
-        import android.hardware.camera2.CameraDevice;
-        import android.hardware.camera2.CameraManager;
-        import android.hardware.camera2.CameraMetadata;
-        import android.hardware.camera2.CaptureRequest;
-        import android.hardware.camera2.TotalCaptureResult;
-        import android.hardware.camera2.params.StreamConfigurationMap;
-        import android.media.Image;
-        import android.media.ImageReader;
-        import android.os.Bundle;
-        import android.os.Environment;
-        import android.os.Handler;
-        import android.os.HandlerThread;
-        import android.support.annotation.NonNull;
-        import android.support.v4.app.ActivityCompat;
-        import android.support.v7.app.AppCompatActivity;
-        import android.util.Log;
-        import android.util.Size;
-        import android.util.SparseIntArray;
-        import android.view.Surface;
-        import android.view.TextureView;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.Toast;
         import java.io.File;
-        import java.io.FileNotFoundException;
-        import java.io.FileOutputStream;
-        import java.io.IOException;
-        import java.io.OutputStream;
-        import java.nio.ByteBuffer;
-        import java.util.ArrayList;
-        import java.util.Arrays;
-        import java.util.List;
         import java.util.Random;
-
-        import static android.R.attr.angle;
-        import static android.R.attr.src;
-
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
@@ -78,7 +23,6 @@ public class Kaleidoscope extends AppCompatActivity {
     ImageView ImageView;
     Bitmap photo;
     static final int CamReq = 1;
-    //this is a comment
 
 
     @Override
@@ -88,13 +32,15 @@ public class Kaleidoscope extends AppCompatActivity {
         button = (Button) findViewById(R.id.Capture);
         Kal = (Button) findViewById(R.id.Kaleidoscope);
         ImageView = (ImageView) findViewById(R.id.TextureView);
+        Bitmap.Config conf = Bitmap.Config.ARGB_8888;
+        photo = Bitmap.createBitmap(100, 100, conf);
 
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent camera_intent = new Intent (MediaStore.ACTION_IMAGE_CAPTURE);
-                File file = getFile();
+                File file = getFile();//not currently used to save photos, regular photo sent to your photos
                 //camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
                 startActivityForResult(camera_intent,CamReq);
             }
@@ -105,11 +51,11 @@ public class Kaleidoscope extends AppCompatActivity {
         Kal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bitmap croped = KalT(photo);
-                Bitmap scaled = Kaleidoscopefinal(croped);
+                Bitmap croped = KalT(photo);//KalT change the size of the photo bitmap.
+                Bitmap scaled = Kaleidoscopefinal(croped);//sends the bitmap created by croped and creates the Kaleidoscope.
                 Random random = new Random();
                 int randy= random.nextInt(3);
-                for(int count=0; count < randy; count++) {
+                for(int count=0; count < randy; count++) {//
                     scaled = Kaleidoscopefinal(scaled);
                 }
                 scaled = Kaleidoscopefinal(scaled);
@@ -133,7 +79,7 @@ public class Kaleidoscope extends AppCompatActivity {
         //ImageView.setSurfaceTexture(SurfaceTexture.createFromPath(pathway));
         if (requestCode == CamReq && resultCode == Activity.RESULT_OK) {
             photo = (Bitmap) data.getExtras().get("data");
-            ImageView.setImageBitmap(photo);
+            ImageView.setImageBitmap(photo);//save image capture from camera and puts it in
 
         }
 
@@ -183,8 +129,6 @@ public class Kaleidoscope extends AppCompatActivity {
         return scaled;
     }
     protected Bitmap Kaleidoscopefinal (Bitmap finalle){
-
-
         Bitmap bmaptemp = Kalf(1,-1,finalle);
         Bitmap bmapc = Kalc(finalle, bmaptemp,0);
         Bitmap bmaptemp1 = Kalf(-1,-1,bmapc);
